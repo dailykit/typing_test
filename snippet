@@ -1,0 +1,96 @@
+<style>
+
+            .info--icons-wrapper {
+                flex-direction: column;
+            }
+
+            .info--icons-wrapper .info--icon {
+                margin-right: 0px;
+                margin-bottom: 48px;
+            }
+
+            .info--icons-wrapper .info--icon .icon-title {
+                margin-top: 2rem;
+                margin-right: 0px;
+                margin-bottom: 1rem;
+                margin-left: 0px;
+            }
+
+            .info--icons-wrapper .info--icon .icon-desc {
+                margin-top: 0px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+            }
+        }
+</style>
+<body>
+            <div class="info--text">
+                <h1>Never pick between socializing and stayin in again.</h1>
+                <p>
+                    Browse through loads of fun activities perfect for team building,
+                    networking, birthday and all occasions in between.
+                </p>
+                <button>Explore</button>
+            </div>
+</body>
+
+useEffect(() => {
+    if (parsedData.length && typeof document !== 'undefined') {
+       /*Filter undefined scripts*/
+       const scripts = parsedData.flatMap(fold => fold.scripts)
+       const filterScripts = scripts.filter(Boolean)
+       if (Boolean(filterScripts.length)) {
+          const fragment = document.createDocumentFragment()
+          filterScripts.forEach(script => {
+             const s = document.createElement('script')
+             s.setAttribute('type', 'text/javascript')
+             s.setAttribute('src', script)
+             fragment.appendChild(s)
+          })
+          document.body.appendChild(fragment)
+       }
+    }
+ }, [parsedData])
+
+ "name": "hern",
+ "version": "0.1.0",
+ "main": "index.js",
+ "repository": "https://github.com/dailykit/hern.git",
+ "author": "Praveen Bisht <prvnbist@gmail.com>",
+ "license": "MIT",
+ "scripts": {
+    "install:packages": "yarn && cd store && yarn && cd ../admin && yarn",
+    "dev": "concurrently \"nodemon -r esm index.js\" \"cd store && yarn dev\" \"cd admin && yarn start\"",
+    "dev-mac": "concurrently \"nodemon -r esm index.js\" \"cd store && yarn dev\" \"cd admin && yarn start-mac\"",
+    "build": "cd store && yarn build && cd ../admin && yarn build",
+    "build:server": "cd store && yarn build",
+    "prod": "concurrently \"nodemon -r esm index.js\" \"cd store && yarn start\"",
+    "dev:server": "concurrently \"nodemon -r esm index.js\" \"cd store && yarn dev\"",
+    "download-graphql": "chmod +x ./fetchgraphqlschema.sh && ./fetchgraphqlschema.sh",
+    "lint:graphql": "eslint **/graphql/*.js > graphqlerrors.txt"
+ },
+ const {
+    loading: isSelectedTagsLoading,
+    error: selectedTagsQueryError,
+    data: { crm-customer-experienceTags: customerSelectedTags = [] } = {}
+ } = useSubscription(CUSTOMER-SELECTED-TAGS, {
+    skip: isEmpty(user) || isEmpty(user.keycloakId),
+    onSubscriptionData: ({
+       subscriptionData: {
+          data: { crm-customer-experienceTags = [] } = {}
+       } = {}
+    } = {}) => {
+       const result = crm-customer-experienceTags[0]?.tags.map(tag => tag.id)
+       setTagIds(result)
+    },
+    variables: {
+       keycloakId: user?.keycloakId
+    }
+ })
+ 
+ import get from 'lodash/get'
+export const get-env = title => {
+   const env = process.browser ? get(window, '-env-.' + title, '') : null
+   return env
+}
